@@ -1,0 +1,30 @@
+<div>
+    <group v-if="field=='height'">
+        <cell  :title="value+'cm'"  primary="content">
+            <range slot="value" :value.sync="value" :max="200" :min="120"></range>
+        </cell>
+    </group>
+    <group v-if="field=='weight'">
+        <cell  :title="value+'公斤'"  primary="content">
+            <range slot="value" :value.sync="value" :max="100" :min="30"></range>
+        </cell>
+    </group>
+    <group v-if="field=='age'">
+        <cell  :title="value+'岁'"  primary="content">
+            <range slot="value" :value.sync="value" :max="60" :min="16"></range>
+        </cell>
+    </group>
+    <group v-if="field=='name'">
+            <x-input title="名字" :value.sync="value" placeholder="请填写名字"></x-input>
+    </group>
+    <group v-if="field=='mobile'">
+        <x-input title="手机号码" :value.sync="value" placeholder="请填写手机号码" is-type="china-mobile"></x-input>
+    </group>
+    <group title="自我介绍" v-if="field=='desc'">
+        <x-textarea :max="200" placeholder="喜欢看电影,听歌,渴望每天体验不一样的生活。" :value.sync="value" ></x-textarea>
+    </group>
+    <div class="weui_cells_tips">请按真实情况填写。</div>
+    <div v-show="field=='desc'" class="weui_cells_tips">请勿填写你的联系方式,如手机号码,QQ,微信,陌陌等,如有发现,将有封号风险。</div>
+    <x-button style="position:absolute;width:100%;bottom:5px;" type="primary" @click="onSubmit"  text="提交修改"></x-button>
+    <loading :show="loading" text="更新中"></loading>
+</div>

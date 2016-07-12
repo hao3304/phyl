@@ -1,0 +1,18 @@
+.page-home .my-table {
+  padding-top: 1px;
+  width: 100%;
+  font-size: 0;
+}
+.page-home .my-table a {
+  position: relative;
+  padding: 0;
+  border: 1px solid #fff;
+}
+.page-home .my-table a p {
+  font-size: 12px;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  width: 100%;
+  color: #fff;
+  bottom: 0;
+}

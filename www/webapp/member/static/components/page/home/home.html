@@ -1,0 +1,29 @@
+<div class="page-home">
+    <div class="weui_search_bar weui_search_focusing" id="search_bar">
+        <form class="weui_search_outer">
+            <div class="weui_search_inner">
+                <i class="weui_icon_search"></i>
+                <input type="search" class="weui_search_input" id="search_input" placeholder="搜索" required="">
+                <a href="javascript:" class="weui_icon_clear" id="search_clear"></a>
+            </div>
+            <label for="search_input" class="weui_search_text" id="search_text">
+                <i class="weui_icon_search"></i>
+                <span>昵称搜索</span>
+            </label>
+        </form>
+        <a href="javascript:" class="weui_search_cancel" id="search_cancel">我的订单</a>
+    </div>
+    <scroller lock-x :scrollbar-x="false" :height="scrollHeight" :pullup-config="pullupConfig" :pulldown-config="pulldownConfig" v-ref:scroller use-pulldown use-pullup @pullup:loading=onPullUp  @pulldown:loading=onPullDown >
+        <div class="weui_grids my-table">
+            <a v-link="{path:'/detail/'+d._id}" class="weui_grid" v-for=" d in list.data">
+                <img  :src="getAvatar(d.avatar)" style="width:100%" alt="">
+                <p>
+                    <span class="pull-left" style="margin-left:5px;">{{d.name}}</span>
+                    <span class="pull-right" style="margin-right:5px;">{{d.age}}岁</span>
+                </p>
+            </a>
+        </div>
+    </scroller>
+
+    <x-button></x-button>
+</div>

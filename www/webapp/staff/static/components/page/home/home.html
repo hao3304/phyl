@@ -1,0 +1,101 @@
+<div class="page-home">
+    <div class="weui_cells">
+        <div class="weui_cell weui_cell_select weui_select_after">
+            <div class="weui_cell_hd">
+                <label for="" class="weui_label">我的状态</label>
+            </div>
+            <div class="weui_cell_bd weui_cell_primary">
+                <select class="weui_select" v-model="info.state" @change="onStateChange" number>
+                    <option value="{{$key}}" v-for="s in state">{{s}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="weui_cells weui_cells_form" style="margin-top: 0">
+            <div class="weui_cell">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <div class="weui_uploader">
+                        <div class="weui_uploader_hd weui_cell">
+                            <div class="weui_cell_bd weui_cell_primary">我的照片</div>
+                            <div class="weui_cell_ft">{{info.pics.length}}/4</div>
+                        </div>
+                        <div class="weui_uploader_bd">
+                            <ul class="weui_uploader_files">
+                                <li class="weui_uploader_file" @click="onClickImg(p)" v-for="p in info.pics" :style="{'background-image':'url(/image/100/100/'+p+')'}"></li>
+                            </ul>
+                            <div class="weui_uploader_input_wrp" v-if="info.pics.length<4">
+                                <input class="weui_uploader_input" @change="onUpload($event)" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="weui_cell weui_cells_access my-pic">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>我的头像</p>
+            </div>
+            <div class="weui_cell_ft">
+                <img :src="info.avatar" style="width: 66px;height:66px;border-radius: 5px;" alt="">
+                <input class="weui_uploader_input" @change="onUploadHead($event)" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+            </div>
+        </div>
+
+        <a class="weui_cell weui_cells_access" v-link="{path:'/edit/name/'+info.name+'/string'}">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>我的名字</p>
+            </div>
+            <div class="weui_cell_ft">
+                {{info.name}}
+            </div>
+        </a>
+        <a class="weui_cell weui_cells_access"  v-link="{path:'/edit/mobile/'+info.mobile+'/string'}">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>手机号码</p>
+            </div>
+            <div class="weui_cell_ft">
+                {{info.mobile}}
+            </div>
+        </a>
+        <a class="weui_cell weui_cells_access" v-link="{path:'/edit/age/'+info.age +'/int'}">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>我的年龄</p>
+            </div>
+            <div class="weui_cell_ft">
+                {{info.age}}岁
+            </div>
+        </a>
+        <a class="weui_cell weui_cells_access" v-link="{path:'/edit/height/'+(info.height||165) +'/int'}">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>我的身高</p>
+            </div>
+            <div class="weui_cell_ft">
+                {{info.height?info.height+'cm':'请填写'}}
+            </div>
+        </a>
+
+        <a class="weui_cell weui_cells_access"  v-link="{path:'/edit/weight/'+(info.weight||50) +'/int'}">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>我的体重</p>
+            </div>
+            <div class="weui_cell_ft">
+                {{info.weight?info.weight+'公斤':'请填写'}}
+            </div>
+        </a>
+
+        <div class="weui_cells weui_cells_access" style="margin-top:0;">
+            <a  v-link="{path:'/edit/desc/'+(info.desc||'暂无') +'/string'}" class="weui_cell " >
+                <div class="weui_cell_bd weui_cell_primary">
+                    <h3 style="font-size:17px;font-weight:normal;">自我介绍</h3>
+                    <p style="font-size:13px;color:#999;">{{info.desc||'暂无'}}</p>
+                </div>
+                <span class="weui_cell_ft"></span>
+                </a>
+        </div>
+
+    </div>
+    <toast :show.sync="showToast" :time="1000">更新状态成功!</toast>
+    <loading :show="loading" :text="text"></loading>
+    <actionsheet :menus="menus" :show.sync="showSheet" @menu-click="onSheetClick" show-cancel cancel-text="取消"></actionsheet>
+    <confirm :show.sync="showConfirm"  cancel-text="取消" confirm-text="确定" @on-confirm="onDelPic" title=""><p style="text-align:center;">确定删除该图片?</p></confirm>
+</div>

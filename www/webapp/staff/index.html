@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">    <title>个人信息</title>
+
+    <link rel="stylesheet" href="/webapp/staff/static/pkg/all_ecc7865.css" />
+</head>
+<body id="app" >
+
+<router-view  keep-alive></router-view>
+<script src="/webapp/staff/static/js/mod.js"></script>
+<script>/*resourcemap*/
+require.resourceMap({
+  "res": {
+    "component_modules/vue": {
+      "url": "/webapp/staff/static/component_modules/vue.js",
+      "type": "js",
+      "pkg": "p0"
+    },
+    "component_modules/vue-router": {
+      "url": "/webapp/staff/static/component_modules/vue-router.js",
+      "type": "js",
+      "pkg": "p0"
+    },
+    "components/page/image/image": {
+      "url": "/webapp/staff/static/components/page/image/image.js",
+      "type": "js",
+      "deps": [
+        "component_modules/vue"
+      ],
+      "pkg": "p1"
+    },
+    "actionsheet/index": {
+      "url": "/webapp/staff/static/components/component/actionsheet/index.js",
+      "type": "js",
+      "pkg": "p1"
+    },
+    "cell/index": {
+      "url": "/webapp/staff/static/components/component/cell/index.js",
+      "type": "js",
+      "pkg": "p1"
+    },
+    "confirm/index": {
+      "url": "/webapp/staff/static/components/component/confirm/index.js",
+      "type": "js",
+      "pkg": "p1"
+    },
+    "group/index": {
+      "url": "/webapp/staff/static/components/component/group/index.js",
+      "type": "js",
+      "pkg": "p1"
+    },
+    "loading/index": {
+      "url": "/webapp/staff/static/components/component/loading/index.js",
+      "type": "js",
+      "pkg": "p1"
+    },
+    "main/service": {
+      "url": "/webapp/staff/static/components/component/main/service.js",
+      "type": "js",
+      "deps": [
+        "component_modules/vue"
+      ],
+      "pkg": "p1"
+    },
+    "toast/index": {
+      "url": "/webapp/staff/static/components/component/toast/index.js",
+      "type": "js",
+      "pkg": "p1"
+    },
+    "components/page/home/home": {
+      "url": "/webapp/staff/static/components/page/home/home.js",
+      "type": "js",
+      "deps": [
+        "component_modules/vue",
+        "main/service",
+        "actionsheet/index",
+        "confirm/index",
+        "toast/index"
+      ],
+      "pkg": "p1"
+    },
+    "main/main": {
+      "url": "/webapp/staff/static/components/component/main/main.js",
+      "type": "js",
+      "deps": [
+        "component_modules/vue",
+        "component_modules/vue-router",
+        "components/page/home/home",
+        "loading/index"
+      ],
+      "pkg": "p1"
+    },
+    "x-input/index": {
+      "url": "/webapp/staff/static/components/component/x-input/index.js",
+      "type": "js",
+      "pkg": "p1"
+    },
+    "x-button/index": {
+      "url": "/webapp/staff/static/components/component/x-button/index.js",
+      "type": "js",
+      "pkg": "p1"
+    },
+    "x-textarea/index": {
+      "url": "/webapp/staff/static/components/component/x-textarea/index.js",
+      "type": "js",
+      "pkg": "p1"
+    },
+    "range/index": {
+      "url": "/webapp/staff/static/components/component/range/index.js",
+      "type": "js",
+      "pkg": "p1"
+    },
+    "components/page/edit/edit": {
+      "url": "/webapp/staff/static/components/page/edit/edit.js",
+      "type": "js",
+      "deps": [
+        "component_modules/vue",
+        "group/index",
+        "x-input/index",
+        "x-button/index",
+        "x-textarea/index",
+        "range/index",
+        "cell/index",
+        "loading/index",
+        "main/service"
+      ],
+      "pkg": "p1"
+    }
+  },
+  "pkg": {
+    "p0": {
+      "url": "/webapp/staff/static/pkg/common_b35bf71.js",
+      "type": "js"
+    },
+    "p1": {
+      "url": "/webapp/staff/static/pkg/app_8834f78.js",
+      "type": "js"
+    }
+  }
+});</script>
+<script src="/webapp/staff/static/js/zepto.js"></script>
+<script src="/webapp/staff/static/js/lrz.mobile.min.js"></script>
+<script type="text/javascript">
+    require(["main/main.js"]);
+</script>
+</body>
+</html>

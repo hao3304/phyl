@@ -1,0 +1,38 @@
+body,html{
+  background-color: #fbf9fe;
+}
+
+.slide-transition{
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+  opacity: 1;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  width: 100%;
+}
+
+.slide-enter,.slide-leave{
+  opacity: 0;
+  -webkit-transform: translateX(100px);
+  -moz-transform: translateX(100px);
+  -ms-transform: translateX(100px);
+  -o-transform: translateX(100px);
+  transform: translateX(100px);
+}
+
+.pull-right{
+  float:right;
+}
+
+.pull-left{
+  float:left;
+}
+
+.bd{
+  padding: 0 15px;
+  margin: 15px 0;
+}
