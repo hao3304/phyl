@@ -79,12 +79,12 @@ var _class = function (_Base) {
 
               this.redirect(url);
 
-              _context.next = 28;
+              _context.next = 29;
               break;
 
             case 10:
               if (!code) {
-                _context.next = 27;
+                _context.next = 28;
                 break;
               }
 
@@ -110,17 +110,17 @@ var _class = function (_Base) {
               return _context.abrupt('break', 23);
 
             case 23:
-
+              debugger;
               this.session("userinfo", { _id: userinfo._id.toJSON(), userid: userinfo.userid, type: view });
               this.redirect(url);
 
-              _context.next = 28;
+              _context.next = 29;
               break;
 
-            case 27:
+            case 28:
               this.redirect(this.getAuthorizeURL());
 
-            case 28:
+            case 29:
             case 'end':
               return _context.stop();
           }
@@ -341,9 +341,10 @@ var _class = function (_Base) {
               userinfo = _context6.sent;
 
             case 15:
+              debugger;
               return _context6.abrupt('return', userinfo);
 
-            case 16:
+            case 17:
             case 'end':
               return _context6.stop();
           }

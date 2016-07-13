@@ -15,7 +15,7 @@ export default class extends think.model.mongo {
         member.created = d;
         member.update = d;
         let result = await this.thenAdd(member,{userid:member.userid});
-        member._id  = result._id;
+        member._id  = result.id;
         return member;
     }
 

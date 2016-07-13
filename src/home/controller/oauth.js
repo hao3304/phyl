@@ -30,7 +30,6 @@ export default class extends Base {
           userinfo = await this.isMember(code);
         }break;
       }
-
       this.session("userinfo",{_id:userinfo._id,userid:userinfo.userid,type:view});
       this.redirect(url);
 
@@ -122,11 +121,11 @@ export default class extends Base {
     let result = await this.getUserId(code);
     let Model =  this.model("staff");
     userinfo = await Model.findByStaffId(result.UserId);
-
     if(think.isEmpty(userinfo)){
       userinfo = await this.getUser(result.UserId);
       userinfo = await Model.addStaff(userinfo);
     }
+    debugger
     return userinfo;
   }
 

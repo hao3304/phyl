@@ -47,7 +47,7 @@ export default class extends think.model.mongo {
     async addStaff(staff){
         staff.pics = [];
         let result = await this.thenAdd(staff,{userid:staff.userid});
-        staff._id  = result._id;
+        staff._id  = result.id;
         return staff;
     }
 

@@ -118,7 +118,7 @@ var _class = function (_think$model$mongo) {
                         case 3:
                             result = _context2.sent;
 
-                            staff._id = result._id;
+                            staff._id = result.id;
                             return _context2.abrupt("return", staff);
 
                         case 6:
