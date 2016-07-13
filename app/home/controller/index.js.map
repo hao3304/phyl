@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "sources": [
+        "../../../src/home/controller/index.js"
+    ],
+    "names": [],
+    "mappings": "AAAA;;;;;;;;;;;;;;;;;;;;;;;;AAEA;;;;;;;;;;;;;;;;;;;mBAOG,W,0BAAa;AACZ,SAAK,UAAL;AACA,WAAO,KAAK,OAAL,EAAP;AACD,G;;mBAEK,S;;UACA,K;;;;;AAAA,mB,GAAQ,KAAK,KAAL,CAAW,MAAX,C;;qBACN,MAAM,GAAN,CAAU;AACd,sBAAO,CADO;AAEd,0BAAW,CACT;AACE,uBAAM,CADR;AAEE,uBAAM;AAFR,iBADS,EAKT;AACE,uBAAM,CADR;AAEE,uBAAM;AAFR,iBALS,EAST;AACE,uBAAM,CADR;AAEE,uBAAM;AAFR,iBATS;AAFG,eAAV,C;;;+CAiBC,KAAK,OAAL,E;;;;;;;;;;;;;;;;;mBAGH,U;;UACA,K;;;;;AAAA,mB,GAAQ,KAAK,KAAL,CAAW,MAAX,C;;qBACN,MAAM,KAAN,CAAY,EAAC,QAAQ,OAAT,EAAZ,EAA+B,MAA/B,CAAsC,EAAC,OAAO,EAAC,QAAQ,CAAT,EAAR,EAAoB,MAAK,MAAzB,EAAtC,C",
+    "file": "../../../src/home/controller/index.js",
+    "sourcesContent": [
+        "'use strict';\n\nimport Base from './base.js';\n\nexport default class extends Base {\n  /**\n   * index action\n   * @return {Promise} []\n   */\n   indexAction(){\n    this.pullAction();\n    return this.display();\n  }\n\n  async addAction (){\n    var model = this.model('demo');\n    await model.add({\n      \"id\" : 6,\n      \"canshu\" : [\n        {\n          \"a\" : 1,\n          \"b\" : \"111\"\n        },\n        {\n          \"a\" : 2,\n          \"b\" : \"222\"\n        },\n        {\n          \"a\" : 3,\n          \"b\" : \"333\"\n        }\n      ]\n    });\n    return this.success();\n  }\n\n  async pullAction () {\n    var model = this.model('demo');\n    await model.where({userid: \"ph002\"}).update({$push: {'pics': 1},name:\"jack\"})\n  }\n\n}"
+    ]
+}

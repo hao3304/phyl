@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "sources": [
+        "../../../src/home/model/post.js"
+    ],
+    "names": [],
+    "mappings": "AAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;mBAUE,I,mBAAa;AAAA;;AAAA,sCAAL,IAAK;AAAL,UAAK;AAAA;;AACX,8DAAM,IAAN,mDAAc,IAAd;;AAEA,SAAK,QAAL,GAAgB;AACd,YAAK;AACH,cAAK,KAAK,KAAL,CAAW,OADb;AAEH,cAAK,IAFF;AAGH,aAAI;AAHD;AADS,KAAhB;AAOD,G;;mBAED,O,sBAAS;;AAEP,WAAO,KAAK,MAAL,EAAP;AAED,G;;;EAtB0B,MAAM,KAAN,CAAY,Q",
+    "file": "../../../src/home/model/post.js",
+    "sourcesContent": [
+        "'use strict';\n/**\n * relation model\n */\nexport default class extends think.model.relation {\n  /**\n   * init\n   * @param  {} args []\n   * @return {}         []\n   */\n  init(...args){\n    super.init(...args);\n\n    this.relation = {\n      user:{\n        type:this.model.HAS_ONE,\n        fKey:\"id\",\n        key:\"user_id\"\n      }\n    }\n  }\n\n  getList(){\n\n    return this.select();\n\n  }\n}"
+    ]
+}

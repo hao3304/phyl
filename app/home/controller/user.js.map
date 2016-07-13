@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "sources": [
+        "../../../src/home/controller/user.js"
+    ],
+    "names": [],
+    "mappings": "AAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;mBAWE,I,iBAAK,I,EAAK;AACR,oCAAM,IAAN,YAAW,IAAX;AACD,G;;;;;;;mBAKD,Q,uBAAU,CAET,C;;mBAEK,U;;UACA,I,EAIE,Q;;;;;AAJF,kB,GAAO,KAAK,IAAL,E;;mBACR,MAAM,OAAN,CAAc,IAAd,C;;;;;+CACM,KAAK,IAAL,CAAU,eAAV,C;;;;qBAEc,KAAK,aAAL,CAAmB,GAAnB,CAAuB,IAAvB,C;;;AAAjB,sB;+CACG,KAAK,OAAL,CAAa,EAAC,IAAG,QAAJ,EAAb,C;;;;;;;;;;;;;;;;;;EAvBgB,MAAM,UAAN,CAAiB,I",
+    "file": "../../../src/home/controller/user.js",
+    "sourcesContent": [
+        "'use strict';\n/**\n * rest controller\n * @type {Class}\n */\nexport default class extends think.controller.rest {\n  /**\n   * init\n   * @param  {Object} http []\n   * @return {}      []\n   */\n  init(http){\n    super.init(http);\n  }\n  /**\n   * before magic method\n   * @return {Promise} []\n   */\n  __before(){\n    \n  }\n\n  async postAction(){\n    let data = this.post();\n    if(think.isEmpty(data)){\n      return this.fail(\"data is empty\");\n    }else{\n      let insertId = await this.modelInstance.add(data);\n      return this.success({id:insertId});\n    }\n  }\n}"
+    ]
+}

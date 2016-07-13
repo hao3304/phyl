@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "sources": [
+        "../../../src/common/config/db.js"
+    ],
+    "names": [],
+    "mappings": "AAAA;;;;;;;kBAKe;AACb,QAAM,OADO;AAEb,WAAS;;;;;;;;;;AAUP,WAAO;AACL,YAAK,WADA;AAEL,YAAK,OAFA;AAGL,gBAAS,MAHJ;AAIL,cAAO;AAJF;AAVA;AAFI,C",
+    "file": "../../../src/common/config/db.js",
+    "sourcesContent": [
+        "'use strict';\n/**\n * db config\n * @type {Object}\n */\nexport default {\n  type: 'mongo',\n  adapter: {\n    //mysql: {\n    //  host: '127.0.0.1',\n    //  port: '3306',\n    //  database: 'PHYL',\n    //  user: 'jack',\n    //  password: 'hao3304',\n    //  prefix: '',\n    //  encoding: 'utf8'\n    //},\n    mongo: {\n      host:\"127.0.0.1\",\n      port:\"27017\",\n      database:\"PHYL\",\n      prefix:\"\"\n    }\n  }\n};"
+    ]
+}

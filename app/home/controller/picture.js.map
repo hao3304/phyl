@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "sources": [
+        "../../../src/home/controller/picture.js"
+    ],
+    "names": [],
+    "mappings": "AAAA;;;;;;;;;;;;;;;;;;;;;;;;AAEA;;;;;;;;;;;;;;;;;;;mBAQQ,Q;;UACA,Q;;;;;;qBAAiB,KAAK,OAAL,CAAa,UAAb,C;;;AAAjB,sB;;mBACD,MAAM,OAAN,CAAc,QAAd,C;;;;;+CACM,KAAK,IAAL,CAAU,MAAV,C;;;;;;;;;;;;;;;;;mBAIL,Y;;UAEE,I,EAEA,K;;;;;mBAHH,KAAK,MAAL,E;;;;;;qBACgB,KAAK,OAAL,CAAa,UAAb,C;;;AAAb,kB;AAEA,mB,GAAQ,KAAK,KAAL,CAAW,OAAX,C",
+    "file": "../../../src/home/controller/picture.js",
+    "sourcesContent": [
+        "'use strict';\n\nimport Base from './base.js';\n\nexport default class extends Base {\n\n  /**\n   * before magic method\n   * @return {Promise} []\n   */\n  async __before(){\n    let userinfo = await this.session(\"userinfo\");\n    if(think.isEmpty(userinfo)){\n      return this.fail(\"没有权限\");\n    }\n  }\n\n  async updateAction(){\n    if(this.isPost()){\n      let user = await this.session(\"userinfo\");\n\n      let model = this.model(\"staff\");\n    }\n  }\n}"
+    ]
+}

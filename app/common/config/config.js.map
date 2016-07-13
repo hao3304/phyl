@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "sources": [
+        "../../../src/common/config/config.js"
+    ],
+    "names": [],
+    "mappings": "AAAA;;;;;;kBAIe;AACX,iBAAa,IADF,E;AAEX,kBAAc,qDAFH;AAGX,cAAS;AAHE,C",
+    "file": "../../../src/common/config/config.js",
+    "sourcesContent": [
+        "'use strict';\n/**\n * config\n */\nexport default {\n    resource_on: true, //是否开启静态资源解析功能\n    resource_reg: /^((static|webapp|upload)\\/|[^\\/]+\\.(?!js|html)\\w+$)/,\n    route_on:true\n};"
+    ]
+}

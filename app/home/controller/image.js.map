@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "sources": [
+        "../../../src/home/controller/image.js"
+    ],
+    "names": [],
+    "mappings": "AAAA;;;;;;;;;;;;;;;;AAEA;;;;;;AACA,IAAI,SAAS,QAAQ,QAAR,CAAb;;;;;;;;;;;;;;;mBAOE,W,0BAAa;AACX,QAAI,QAAQ,KAAK,GAAL,CAAS,OAAT,CAAZ;QACI,SAAS,KAAK,GAAL,CAAS,QAAT,CADb;QAEI,OAAO,KAAK,GAAL,CAAS,MAAT,CAFX;AAGA,SAAK,IAAL,CAAU,WAAV;AACA,QAAG,KAAH,EAAS;AACP,WAAK,GAAL,CAAS,OAAO,MAAM,WAAN,GAAmB,GAAnB,GAAwB,IAA/B,EAAqC,IAArC,CAA0C,SAAS,KAAT,CAA1C,EAA0D,SAAS,MAAT,CAA1D,EAA4E,MAA5E,CAAmF,KAAnF,CAAT;AACD,KAFD,MAEK;AACH,WAAK,GAAL,CAAS,OAAO,MAAM,WAAN,GAAmB,GAAnB,GAAwB,IAA/B,EAAqC,MAArC,CAA4C,KAA5C,CAAT;AACD;AACF,G",
+    "file": "../../../src/home/controller/image.js",
+    "sourcesContent": [
+        "'use strict';\n\nimport Base from './base.js';\nlet images = require(\"images\");\n\nexport default class extends Base {\n  /**\n   * index action\n   * @return {Promise} []\n   */\n  indexAction(){\n    let width = this.get(\"width\"),\n        height = this.get(\"height\"),\n        name = this.get(\"name\");\n    this.type(\"image/png\");\n    if(width){\n      this.end(images(think.UPLOAD_PATH +\"/\"+ name).size(parseInt(width),parseInt(height)).encode(\"jpg\"));\n    }else{\n      this.end(images(think.UPLOAD_PATH +\"/\"+ name).encode(\"jpg\"));\n    }\n  }\n}"
+    ]
+}

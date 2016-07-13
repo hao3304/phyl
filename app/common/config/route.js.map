@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "sources": [
+        "../../../src/common/config/route.js"
+    ],
+    "names": [],
+    "mappings": ";;;;;;;kBAKe,CACX,CAAC,aAAD,EAAe,kBAAf,CADW,EAEX,CAAC,4BAAD,EAA8B,kBAA9B,CAFW,EAGX,CAAC,aAAD,EAAe,kBAAf,CAHW,EAIX,CAAC,mBAAD,EAAqB;AACjB,YAAO;AADU,CAArB,CAJW,C",
+    "file": "../../../src/common/config/route.js",
+    "sourcesContent": [
+        "/**\n * Created by jack on 16/6/5.\n */\n\n\nexport default [\n    [\"oauth/:view\",\"home/oauth/index\"],\n    [\"image/:width/:height/:name\",\"home/image/index\"],\n    [\"image/:name\",\"home/image/index\"],\n    [\"staff/picture/:id\",{\n        delete:\"home/staff/delpic\"\n    }]\n]"
+    ]
+}

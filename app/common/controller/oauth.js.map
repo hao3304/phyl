@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "sources": [
+        "../../../src/common/controller/oauth.js"
+    ],
+    "names": [],
+    "mappings": "AAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;mBAWE,I,iBAAK,I,EAAK;AACR,oCAAM,IAAN,YAAW,IAAX;AACD,G;;;;;;;mBAKD,Q,uBAAU,CAET,C;;mBAED,S,wBAAW;;AAET,SAAK,OAAL,CAAa,EAAC,MAAK,CAAN,EAAb;AACD,G;;;EApB0B,MAAM,UAAN,CAAiB,I",
+    "file": "../../../src/common/controller/oauth.js",
+    "sourcesContent": [
+        "'use strict';\n/**\n * rest controller\n * @type {Class}\n */\nexport default class extends think.controller.rest {\n  /**\n   * init\n   * @param  {Object} http []\n   * @return {}      []\n   */\n  init(http){\n    super.init(http);\n  }\n  /**\n   * before magic method\n   * @return {Promise} []\n   */\n  __before(){\n    \n  }\n\n  getAction(){\n\n    this.success({data:1});\n  }\n}"
+    ]
+}
