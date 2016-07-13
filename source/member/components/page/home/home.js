@@ -75,9 +75,7 @@ module.exports = Vue.extend({
             var list = [];
             var data = rep.data;
             if(data.length>0){
-
                 for (var i = 0; i < data.length; i=i+3) {
-
                     list.push([data[i]||{},data[i+1]||{},data[i+2]||{}])
                 }
 

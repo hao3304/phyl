@@ -31,7 +31,7 @@ export default class extends Base {
         }break;
       }
 
-      this.session("userinfo",{_id:userinfo._id.toJSON(),userid:userinfo.userid,type:view});
+      this.session("userinfo",{_id:userinfo._id,userid:userinfo.userid,type:view});
       this.redirect(url);
 
     }else{
