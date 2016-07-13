@@ -53,12 +53,13 @@ module.exports = Vue.extend({
             var file = e.target.files[0];
             var self = this;
             this.loading = true;
-            this.text = "上传中";
+            this.text = "获取图片中...";
             lrz(file, {
                 width: 500,
                 done: function (rep) {
                     var data = new FormData();
                     data.append("file",rep.origin);
+                    self.text="上传中...";
                     Service.upload(data, function (rep) {
                         self.info.pics.push(rep.data.name);
                         Service.addPic({pid:rep.data.name}, function (rep) {
@@ -72,12 +73,13 @@ module.exports = Vue.extend({
             var file = e.target.files[0];
             var self = this;
             this.loading = true;
-            this.text = "上传中";
+            this.text = "获取图片中...";
             lrz(file, {
                 width: 500,
                 done: function (rep) {
                     var data = new FormData();
                     data.append("file",rep.origin);
+                    self.text="上传中...";
                     Service.upload(data, function (rep) {
                         Service.uploadHeadPic({pid:rep.data.name}, function (rep) {
                             self.info.avatar = rep.data;
