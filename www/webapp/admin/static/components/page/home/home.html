@@ -1,0 +1,53 @@
+<div class="page-home">
+    <tab>
+        <tab-item :selected="tab === '0'" @click="tab = '0'">处理中</tab-item>
+        <tab-item :selected="tab === '1'" @click="tab = '1'">已完成</tab-item>
+    </tab>
+    <div class="weui_panel weui_panel_access" v-for="l in list.data">
+        <div v-show="l.state == tab">
+            <div class="weui_panel_hd">
+                下单日期
+                <span style="float: right;color: #09bb07;font-weight: bold">
+                {{new Date(l.created).Format('yyyy-MM-dd hh:mm')}}
+            </span>
+            </div>
+            <div class="weui_panel_bd">
+                <div class="weui_cells" style="margin-top:0;">
+                    <div class="weui_cell">
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>客户名称</p>
+                        </div>
+                        <div class="weui_cell_ft">{{l.user.name}}</div>
+                    </div>
+                    <div class="weui_cell">
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>联系方式</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                            <a href="tel:{{l.user.mobile}}">{{l.user.mobile}}</a>
+                        </div>
+                    </div>
+                    <div class="weui_cell">
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>预约人数</p>
+                        </div>
+                        <div class="weui_cell_ft">{{getCount(l.list)}}人</div>
+                    </div>
+                </div>
+            </div>
+            <a v-link="{path:'/detail/'+l._id}" class="weui_panel_ft">查看详情</a>
+        </div>
+    </div>
+
+    <div class="weui_panel weui_panel_access" v-if="(count==0&&tab==0)||list.data.length==0">
+        <div class="msg">
+            <div class="weui_msg">
+                <div class="weui_icon_area"><i class="weui_icon_success weui_icon_msg"></i></div>
+                <div class="weui_text_area">
+                    <h2 class="weui_msg_title">暂无订单记录</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <loading :show="loading" text="加载中..." ></loading>
+</div>

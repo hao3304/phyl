@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">    <title>会员服务</title>
+
+    <link rel="stylesheet" href="/webapp/admin/static/pkg/all_400e5e1.css" />
+</head>
+<body id="app" >
+
+<router-view  keep-alive transition="slide"  ></router-view>
+<script src="/webapp/admin/static/js/mod.js"></script>
+<script>/*resourcemap*/
+require.resourceMap({
+  "res": {
+    "component_modules/vue": {
+      "url": "/webapp/admin/static/component_modules/vue.js",
+      "type": "js",
+      "pkg": "p0"
+    },
+    "component_modules/mui.previewimage": {
+      "url": "/webapp/admin/static/component_modules/mui.previewimage.js",
+      "type": "js",
+      "pkg": "p0"
+    },
+    "component_modules/mui.zoom": {
+      "url": "/webapp/admin/static/component_modules/mui.zoom.js",
+      "type": "js",
+      "pkg": "p0"
+    },
+    "component_modules/vue-router": {
+      "url": "/webapp/admin/static/component_modules/vue-router.js",
+      "type": "js",
+      "pkg": "p0"
+    },
+    "main/service": {
+      "url": "/webapp/admin/static/components/component/main/service.js",
+      "type": "js",
+      "deps": [
+        "component_modules/vue"
+      ],
+      "pkg": "p1"
+    },
+    "actionsheet/index": {
+      "url": "/webapp/admin/static/components/component/actionsheet/index.js",
+      "type": "js",
+      "pkg": "p1"
+    },
+    "badge/index": {
+      "url": "/webapp/admin/static/components/component/badge/index.js",
+      "type": "js",
+      "pkg": "p1"
+    },
+    "confirm/index": {
+      "url": "/webapp/admin/static/components/component/confirm/index.js",
+      "type": "js",
+      "pkg": "p1"
+    },
+    "icon/index": {
+      "url": "/webapp/admin/static/components/component/icon/index.js",
+      "type": "js",
+      "pkg": "p1"
+    },
+    "loading/index": {
+      "url": "/webapp/admin/static/components/component/loading/index.js",
+      "type": "js",
+      "pkg": "p1"
+    },
+    "tab/index": {
+      "url": "/webapp/admin/static/components/component/tab/index.js",
+      "type": "js",
+      "pkg": "p1"
+    },
+    "tab-item/index": {
+      "url": "/webapp/admin/static/components/component/tab-item/index.js",
+      "type": "js",
+      "pkg": "p1"
+    },
+    "components/page/home/home": {
+      "url": "/webapp/admin/static/components/page/home/home.js",
+      "type": "js",
+      "deps": [
+        "component_modules/vue",
+        "main/service",
+        "tab/index",
+        "tab-item/index"
+      ],
+      "pkg": "p1"
+    },
+    "main/main": {
+      "url": "/webapp/admin/static/components/component/main/main.js",
+      "type": "js",
+      "deps": [
+        "component_modules/vue",
+        "component_modules/vue-router",
+        "components/page/home/home",
+        "loading/index",
+        "icon/index"
+      ],
+      "pkg": "p1"
+    },
+    "masker/index": {
+      "url": "/webapp/admin/static/components/component/masker/index.js",
+      "type": "js",
+      "pkg": "p1"
+    },
+    "scroller/index": {
+      "url": "/webapp/admin/static/components/component/scroller/index.js",
+      "type": "js",
+      "pkg": "p1"
+    },
+    "toast/index": {
+      "url": "/webapp/admin/static/components/component/toast/index.js",
+      "type": "js",
+      "pkg": "p1"
+    },
+    "x-button/index": {
+      "url": "/webapp/admin/static/components/component/x-button/index.js",
+      "type": "js",
+      "pkg": "p1"
+    },
+    "components/page/detail/detail": {
+      "url": "/webapp/admin/static/components/page/detail/detail.js",
+      "type": "js",
+      "deps": [
+        "component_modules/vue",
+        "main/service",
+        "confirm/index",
+        "component_modules/mui.zoom",
+        "component_modules/mui.previewimage"
+      ],
+      "pkg": "p1"
+    }
+  },
+  "pkg": {
+    "p0": {
+      "url": "/webapp/admin/static/pkg/common_c60198b.js",
+      "type": "js"
+    },
+    "p1": {
+      "url": "/webapp/admin/static/pkg/app_255f92c.js",
+      "type": "js"
+    }
+  }
+});</script>
+<script src="/webapp/admin/static/js/zepto.js"></script>
+<script src="/webapp/admin/static/js/mui.js"></script>
+<script src="/webapp/admin/static/js/lrz.mobile.min.js"></script>
+<script type="text/javascript">
+    require(["main/main.js"]);
+</script>
+</body>
+</html>

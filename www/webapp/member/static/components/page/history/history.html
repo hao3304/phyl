@@ -1,0 +1,50 @@
+<div class="page-history">
+    <tab>
+        <tab-item :selected="tab === '0'" @click="tab = '0'">处理中</tab-item>
+        <tab-item :selected="tab === '1'" @click="tab = '1'">已完成</tab-item>
+    </tab>
+
+        <div class="weui_panel weui_panel_access" v-for="l in list.data" v-if="l.state == tab">
+            <div class="weui_panel_hd">
+                预约日期
+                <span style="float: right;color: #09bb07;font-weight: bold">  {{new Date(l.created).Format('yyyy-MM-dd hh:mm')}}
+</span>
+            </div>
+            <div class="weui_panel_bd">
+                <a href="javascript:void(0);" class="weui_media_box weui_media_appmsg" v-for="v in l.list">
+                    <div class="weui_media_hd">
+                        <img class="weui_media_appmsg_thumb" :src="v.avatar" alt="">
+                    </div>
+                    <div class="weui_media_bd">
+                        <h4 class="weui_media_title">{{v.name}}
+                            <span class="vux-badge">♀  {{v.age||18}}岁</span>
+                        </h4>
+                        <p class="weui_media_desc">
+                            <span>升高:{{v.height}}cm</span> |
+                            <span>体重:{{v.weight}}公斤</span>
+                        </p>
+                        <p class="weui_media_desc">{{v.desc}}</p>
+                    </div>
+                </a>
+            </div>
+            <div class="weui_cells">
+                <div class="weui_cell">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <p>当前状态</p>
+                    </div>
+                    <div class="weui_cell_ft">{{l.state | orderState}}</div>
+                </div>
+            </div>
+
+            <div class="weui_cells_title">处理说明</div>
+            <div class="weui_cells weui_cells_form">
+                <div class="weui_cell">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        {{l.desc}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <loading :show="loading" text="加载中..."></loading>
+</div>

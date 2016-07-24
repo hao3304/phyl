@@ -1,0 +1,70 @@
+<div class="page-detail">
+    <div class="weui_cells_title">{{new Date(info.created).Format('yyyy-MM-dd hh:mm')}}</div>
+    <div class="weui_cells">
+        <div class="weui_cell">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>客户名称</p>
+            </div>
+            <div class="weui_cell_ft">{{info.user.name}}</div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>联系方式</p>
+            </div>
+            <div class="weui_cell_ft"> <a href="tel:{{info.user.mobile}}">{{info.user.mobile}}</a></div>
+        </div>
+    </div>
+
+    <div class="weui_panel weui_panel_access">
+        <div class="weui_panel_hd">预约列表</div>
+        <div class="weui_panel_bd">
+            <div  class="weui_media_box weui_media_appmsg" v-for="v in info.list">
+                <div class="weui_media_hd">
+                    <img class="weui_media_appmsg_thumb" :src="v.avatar" alt="">
+                </div>
+                <div class="weui_media_bd">
+                    <h4 class="weui_media_title">{{v.name}}
+                        <span style="float: right">
+                            <a href="tel:{{v.mobile}}">{{v.mobile}}</a>
+                        </span>
+                    </h4>
+                    <p class="weui_media_desc">
+                        <span class="vux-badge">♀  {{v.age||18}}岁</span> |
+                        <span>升高:{{v.height}}cm</span> |
+                        <span>体重:{{v.weight}}公斤</span>
+                    </p>
+                    <p class="weui_media_desc">{{v.desc}}</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="weui_cells">
+        <div class="weui_cell">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>订单状态</p>
+            </div>
+            <div class="weui_cell_ft">{{info.state | orderState}}</div>
+        </div>
+    </div>
+
+    <div class="bd spacing" v-show="info.state==0">
+        <a href="javascript:;" class="weui_btn weui_btn_primary" @click="onSubmit(1)">处理完成</a>
+        <a href="javascript:;" class="weui_btn weui_btn_warn"  @click="onSubmit(-1)" >取消订单</a>
+    </div>
+
+    <confirm :show.sync="confirm" title="处理说明" confirm-text="确定" cancel-text="取消"  @on-confirm="onAction('确认')" @on-cancel="onAction('取消')">
+        <div class="weui_cells weui_cells_form">
+            <div class="weui_cell">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <textarea class="weui_textarea" placeholder="请输入处理说明" rows="3" v-model="desc"></textarea>
+                </div>
+            </div>
+        </div>
+    </confirm>
+
+    <loading :show="loading" :text="text"></loading>
+
+
+</div>
