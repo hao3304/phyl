@@ -44,6 +44,7 @@ export default class extends Base {
       delete data._id;
       let result = await this.model('order').where({_id:id}).update(data);
 
+      let oauth = this.controller("oauth");
       oauth.sendMsg({
         "touser": data.user.userid
       },{
