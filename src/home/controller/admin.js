@@ -46,7 +46,8 @@ export default class extends Base {
 
       let oauth = this.controller("oauth");
       console.log("userid:"+data.user.userid);
-      oauth.sendMsg({
+
+      await oauth.sendMsg({
         "touser": data.user.userid
       },{
         "msgtype": "text",
