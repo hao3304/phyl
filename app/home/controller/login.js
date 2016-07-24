@@ -66,7 +66,7 @@ var _class = function (_Base) {
               return this.session("userinfo", { _id: userinfo._id, userid: userinfo.userid, type: m });
 
             case 10:
-              this.redirect("/webapp/" + m + "/#!/home");
+              this.redirect("/webapp/" + m + "/index.html#!/home");
               _context.next = 14;
               break;
 

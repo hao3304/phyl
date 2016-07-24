@@ -53,7 +53,7 @@
     </div>
 
     <div class="bd">
-        <x-button type="primary" text="加入预约列表" @click="onPush"></x-button>
+        <x-button type="primary" text="加入预约列表" @click="onPush(info)"></x-button>
     </div>
 
     <loading :show="loading" :text="text"></loading>

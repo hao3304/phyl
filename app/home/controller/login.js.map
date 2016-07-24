@@ -4,9 +4,9 @@
         "../../../src/home/controller/login.js"
     ],
     "names": [],
-    "mappings": "AAAA;;;;;;;;;;;;;;;;;;;;;;;;AAEA;;;;;;;;;;;;;;mBAIQ,W;;UAEC,E,EACA,C,EACA,K,EACA,Q;;;;;mBAJH,KAAK,KAAL,E;;;;;AACG,gB,GAAM,KAAK,GAAL,CAAS,QAAT,C;AACN,e,GAAI,KAAK,GAAL,CAAS,OAAT,C;AACJ,mB,GAAQ,KAAK,KAAL,CAAW,CAAX,C;;qBACS,MAAM,IAAN,CAAW,EAAC,QAAO,EAAR,EAAX,C;;;AAAjB,sB;;kBACA,MAAM,OAAN,CAAc,QAAd,C;;;;;;qBACI,KAAK,OAAL,CAAa,UAAb,EAAwB,EAAC,KAAI,SAAS,GAAd,EAAkB,QAAO,SAAS,MAAlC,EAAyC,MAAK,CAA9C,EAAxB,C;;;AACN,mBAAK,QAAL,CAAc,aAAW,CAAX,GAAa,UAA3B;;;;;AAEA,mBAAK,IAAL,CAAU,OAAV",
+    "mappings": "AAAA;;;;;;;;;;;;;;;;;;;;;;;;AAEA;;;;;;;;;;;;;;mBAIQ,W;;UAEC,E,EACA,C,EACA,K,EACA,Q;;;;;mBAJH,KAAK,KAAL,E;;;;;AACG,gB,GAAM,KAAK,GAAL,CAAS,QAAT,C;AACN,e,GAAI,KAAK,GAAL,CAAS,OAAT,C;AACJ,mB,GAAQ,KAAK,KAAL,CAAW,CAAX,C;;qBACS,MAAM,IAAN,CAAW,EAAC,QAAO,EAAR,EAAX,C;;;AAAjB,sB;;kBACA,MAAM,OAAN,CAAc,QAAd,C;;;;;;qBACI,KAAK,OAAL,CAAa,UAAb,EAAwB,EAAC,KAAI,SAAS,GAAd,EAAkB,QAAO,SAAS,MAAlC,EAAyC,MAAK,CAA9C,EAAxB,C;;;AACN,mBAAK,QAAL,CAAc,aAAW,CAAX,GAAa,oBAA3B;;;;;AAEA,mBAAK,IAAL,CAAU,OAAV",
     "file": "../../../src/home/controller/login.js",
     "sourcesContent": [
-        "'use strict';\n\nimport Base from './base.js';\n\nexport default class extends Base {\n\n  async indexAction(){\n   if(this.isGet()){\n     let id =  this.get(\"userid\");\n     let m = this.get(\"model\");\n     var model = this.model(m);\n     let userinfo = await model.find({userid:id});\n     if(!think.isEmpty(userinfo)){\n       await this.session(\"userinfo\",{_id:userinfo._id,userid:userinfo.userid,type:m});\n       this.redirect(\"/webapp/\"+m+\"/#!/home\");\n     }else{\n       this.fail(\"用户不存在\");\n     }\n   }\n  }\n}"
+        "'use strict';\n\nimport Base from './base.js';\n\nexport default class extends Base {\n\n  async indexAction(){\n   if(this.isGet()){\n     let id =  this.get(\"userid\");\n     let m = this.get(\"model\");\n     var model = this.model(m);\n     let userinfo = await model.find({userid:id});\n     if(!think.isEmpty(userinfo)){\n       await this.session(\"userinfo\",{_id:userinfo._id,userid:userinfo.userid,type:m});\n       this.redirect(\"/webapp/\"+m+\"/index.html#!/home\");\n     }else{\n       this.fail(\"用户不存在\");\n     }\n   }\n  }\n}"
     ]
 }

@@ -29,6 +29,9 @@ export default class extends Base {
         case "member":{
           userinfo = await this.isMember(code);
         }break;
+        case "admin":{
+          userinfo = await this.isAdmin(code);
+        }break;
       }
       this.session("userinfo",{_id:userinfo._id,userid:userinfo.userid,type:view});
       this.redirect(url);
@@ -125,7 +128,6 @@ export default class extends Base {
       userinfo = await this.getUser(result.UserId);
       userinfo = await Model.addStaff(userinfo);
     }
-    debugger
     return userinfo;
   }
 
@@ -138,6 +140,20 @@ export default class extends Base {
     if(think.isEmpty(userinfo)){
       userinfo = await this.getUser(result.UserId);
       userinfo = await Model.addMember(userinfo);
+    }
+    return userinfo;
+  }
+
+
+  async isAdmin(code){
+    let userinfo = "";
+    let result = await this.getUserId(code);
+    let Model =  this.model("admin");
+    userinfo = await Model.findByAdminId(result.UserId);
+
+    if(think.isEmpty(userinfo)){
+      userinfo = await this.getUser(result.UserId);
+      userinfo = await Model.addAdmin(userinfo);
     }
     return userinfo;
   }

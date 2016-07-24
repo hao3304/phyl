@@ -13,27 +13,29 @@ require("component_modules/mui.previewimage.js");
 module.exports = Vue.extend({
    template:__inline("detail.html"),
    data: function () {
-     return {
-        info:{},
-        loading:true,
-        text:"加载中..."
-     }
+      return {
+         info:{},
+         loading:true,
+         text:"加载中..."
+      }
    },
    methods:{
-     render: function (id) {
-        var self = this;
-        self.loading = true;
-        Service.getstaff({id:id}, function (rep) {
-           self.info = rep;
-           self.loading = false;
-           Vue.nextTick(function(){
-              self.preview = mui.previewImage({el:self.$el});
-              $("#__MUI_PREVIEWIMAGE").removeClass("mui-preview-out");
-           });
-        });
-     },
+      render: function (id) {
+         var self = this;
+         self.loading = true;
+         Service.getstaff({id:id}, function (rep) {
+            self.info = rep;
+            self.loading = false;
+            Vue.nextTick(function(){
+               self.preview = mui.previewImage({el:self.$el});
+               $("#__MUI_PREVIEWIMAGE").removeClass("mui-preview-out");
+            });
+         });
+      },
       onPush: function (info) {
-         store.list.push(info);
+         if(!store.isHav(info._id)){
+            store.order.push(info);
+         }
          this.$router.go("/home");
       }
    },

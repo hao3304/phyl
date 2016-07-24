@@ -52,7 +52,7 @@ var _class = function (_Base) {
               return this.session("userinfo");
 
             case 2:
-              userinfo = _context.sent;
+              userinfo = this.userinfo = _context.sent;
 
               if (!think.isEmpty(userinfo)) {
                 _context.next = 7;
@@ -136,7 +136,7 @@ var _class = function (_Base) {
               id = this.get("id");
               model = this.model("staff");
               _context3.next = 5;
-              return model.field("name,avatar,pics,state,age,height,weight,desc").where({ _id: id }).find();
+              return model.where({ _id: id }).find();
 
             case 5:
               info = _context3.sent;
@@ -155,6 +155,94 @@ var _class = function (_Base) {
     }
 
     return getstaffAction;
+  }();
+
+  _class.prototype.orderAction = function () {
+    var ref = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee4() {
+      var data, user, row, oauth, page, size, model, list;
+      return _regenerator2.default.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              if (!this.isPost()) {
+                _context4.next = 14;
+                break;
+              }
+
+              data = this.post();
+
+              if (!think.isEmpty(data)) {
+                _context4.next = 4;
+                break;
+              }
+
+              return _context4.abrupt('return', this.fail("data is empty"));
+
+            case 4:
+              _context4.next = 6;
+              return this.model('member').where({ _id: this.userinfo._id }).find();
+
+            case 6:
+              user = _context4.sent;
+              _context4.next = 9;
+              return this.model('order').add({ user: user, list: data });
+
+            case 9:
+              row = _context4.sent;
+              oauth = this.controller("oauth");
+
+
+              oauth.sendMsg({
+                "touser": this.userinfo.userid
+              }, {
+                "msgtype": "text",
+                "text": {
+                  "content": "您的订单提交成功,我们的工作人员将会尽快联系您,请勿重复提交。"
+                },
+                "safe": "0"
+              });
+
+              oauth.sendMsg({
+                "toparty": "10"
+              }, {
+                "msgtype": "text",
+                "text": {
+                  "content": "有新的订单,请注意查看。"
+                },
+                "safe": "0"
+              });
+
+              return _context4.abrupt('return', this.success(row));
+
+            case 14:
+              if (!this.isGet()) {
+                _context4.next = 22;
+                break;
+              }
+
+              page = this.get("page") || 0;
+              size = this.get("size") || 20;
+              model = this.model("order");
+              _context4.next = 20;
+              return model.page(page, size).where({ "user.userid": this.userinfo.userid }).order("created DESC").countSelect();
+
+            case 20:
+              list = _context4.sent;
+              return _context4.abrupt('return', this.success(list));
+
+            case 22:
+            case 'end':
+              return _context4.stop();
+          }
+        }
+      }, _callee4, this);
+    }));
+
+    function orderAction() {
+      return ref.apply(this, arguments);
+    }
+
+    return orderAction;
   }();
 
   return _class;

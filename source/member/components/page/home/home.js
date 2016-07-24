@@ -15,7 +15,7 @@ module.exports = Vue.extend({
                data:[],
                totalPages:0
            },
-            order:[],
+            order:store.order,
             params:{
                 page:0,
                 size:21
@@ -90,7 +90,17 @@ module.exports = Vue.extend({
                 return src.replace("/upload/","/image/100/100/");
 
             }
+        },
+        toOrder:function () {
+            this.$router.go({path:'/order'})
         }
+    },
+    watch:{
+        order:function () {
+            this.list.data.forEach(function (l) {
+                Vue.set(l,"isOrder",store.isHav(l._id));
+            })
+        }  
     },
     ready: function () {
         this.render();

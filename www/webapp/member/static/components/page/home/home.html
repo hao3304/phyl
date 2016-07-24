@@ -11,12 +11,13 @@
                 <span>昵称搜索</span>
             </label>
         </form>
-        <a href="javascript:" class="weui_search_cancel" id="search_cancel">我的订单</a>
+        <a v-link="{path:'/history'}" class="weui_search_cancel" id="search_cancel">我的订单</a>
     </div>
     <scroller lock-x :scrollbar-x="false" :height="scrollHeight" :pullup-config="pullupConfig" :pulldown-config="pulldownConfig" v-ref:scroller use-pulldown use-pullup @pullup:loading=onPullUp  @pulldown:loading=onPullDown >
         <div class="weui_grids my-table">
             <a v-link="{path:'/detail/'+d._id}" class="weui_grid" v-for=" d in list.data">
                 <img  :src="getAvatar(d.avatar)" style="width:100%" alt="">
+                <icon type="success" v-if="d.isOrder"></icon>
                 <p>
                     <span class="pull-left" style="margin-left:5px;">{{d.name}}</span>
                     <span class="pull-right" style="margin-right:5px;">{{d.age}}岁</span>
@@ -24,6 +25,17 @@
             </a>
         </div>
     </scroller>
-
+    <div class="bottom-bar">
+        <span class="bd" style="margin-top: 0;">
+            <template v-if="order.length==0">
+                请先选择
+            </template>
+            <template v-if="order.length>0">
+                已经选择 <span class="text-import">{{order.length}}</span> 位
+            </template>
+        </span>
+        <a href="javascript:;" class="weui_btn weui_btn_primary weui_btn_mini weui_btn_disabled" v-show="order.length==0">选好了</a>
+        <a @click="toOrder" class="weui_btn weui_btn_primary weui_btn_mini " v-show="order.length>0" >选好了</a>
+    </div>
     <x-button></x-button>
 </div>

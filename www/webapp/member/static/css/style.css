@@ -29,3 +29,12 @@ html {
 .pull-left {
   float: left;
 }
+.bd {
+  padding: 0 15px;
+  margin: 15px 0;
+}
+.text-import {
+  font-size: 22px;
+  font-weight: bold;
+  color: #09bb07;
+}

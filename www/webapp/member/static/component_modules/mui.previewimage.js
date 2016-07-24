@@ -328,6 +328,7 @@ define('component_modules/mui.previewimage', function(require, exports, module) 
 		$(this.element).slider().gotoItem(currentIndex, 0);
 		this.indicator && (this.indicator.innerText = (currentIndex + 1) + '/' + this.currentGroup.length);
 		this._loadItem(currentIndex, true);
+		var self = this;
 	};
 	proto.openByGroup = function(index, group) {
 		index = Math.min(Math.max(0, index), this.groups[group].length - 1);

@@ -1,0 +1,45 @@
+<div class="page-order">
+
+    <div class="weui_panel weui_panel_access">
+        <div class="weui_panel_hd">已选列表</div>
+        <div class="weui_panel_bd">
+            <a href="javascript:void(0);" class="weui_media_box weui_media_appmsg" v-for="l in list">
+                <div class="weui_media_hd">
+                    <img class="weui_media_appmsg_thumb" :src="l.avatar" alt="">
+                </div>
+                <div class="weui_media_bd">
+                    <h4 class="weui_media_title">{{l.name}}
+                        <span class="vux-badge">♀  {{l.age||18}}岁</span>
+                        <i style="float:right" class="weui_icon weui_icon_cancel" @click="onRemove(l)"></i>
+                    </h4>
+                    <p class="weui_media_desc">
+                        <span>升高:{{l.height}}cm</span> |
+                        <span>体重:{{l.weight}}公斤</span>
+                    </p>
+                    <p class="weui_media_desc">{{l.desc}}</p>
+
+                </div>
+            </a>
+            <a href="javascript:void(0);" class="weui_media_box weui_media_appmsg" v-show="list.length==0">
+                您的列表空空,请先去选择。
+            </a>
+        </div>
+    </div>
+
+    <div class="bd spacing">
+        <a href="javascript:;" class="weui_btn weui_btn_primary" @click="onSubmit" v-show="list.length>0">确认提交订单</a>
+
+        <a v-link="{path:'/home'}" class="weui_btn weui_btn_warn" >返回</a>
+
+    </div>
+
+    <confirm :show.sync="confirm" confirm-text="确定" cancel-text="取消" title="操作提示" @on-confirm="onAction('确认')">
+        <p style="text-align:center;">确定移除该选择?</p>
+    </confirm>
+
+    <confirm :show.sync="show" confirm-text="确定" cancel-text="取消" title="操作提示" @on-confirm="onAction('订单')">
+        <p style="text-align:center;">提交订单后,我们的工作人员将会联系您。确认现在提交订单?</p>
+    </confirm>
+
+    <loading :show.sync="loading" text="提交中..."></loading>
+</div>

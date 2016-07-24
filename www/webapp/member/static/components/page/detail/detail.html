@@ -52,8 +52,8 @@
         </div>
     </div>
 
-    <div class="weui_cells">
-        <x-button type="primary" text="预约"></x-button>
+    <div class="bd">
+        <x-button type="primary" text="加入预约列表" @click="onPush(info)"></x-button>
     </div>
 
     <loading :show="loading" :text="text"></loading>

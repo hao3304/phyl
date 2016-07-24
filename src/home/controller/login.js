@@ -12,7 +12,7 @@ export default class extends Base {
      let userinfo = await model.find({userid:id});
      if(!think.isEmpty(userinfo)){
        await this.session("userinfo",{_id:userinfo._id,userid:userinfo.userid,type:m});
-       this.redirect("/webapp/"+m+"/#!/home");
+       this.redirect("/webapp/"+m+"/index.html#!/home");
      }else{
        this.fail("用户不存在");
      }

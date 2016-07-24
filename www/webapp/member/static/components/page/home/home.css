@@ -8,6 +8,11 @@
   padding: 0;
   border: 1px solid #fff;
 }
+.page-home .my-table a .weui_icon_success {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
 .page-home .my-table a p {
   font-size: 12px;
   background-color: rgba(0, 0, 0, 0.3);
@@ -15,4 +20,18 @@
   width: 100%;
   color: #fff;
   bottom: 0;
+}
+.page-home .bottom-bar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #f7f7fa;
+  border-top: 1px solid #c7c7c7;
+  line-height: 44px;
+}
+.page-home .bottom-bar .weui_btn {
+  float: right;
+  padding: 3px 20px;
+  margin-top: 6px;
+  margin-right: 10px;
 }

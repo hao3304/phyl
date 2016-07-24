@@ -79,18 +79,18 @@ var _class = function (_Base) {
 
               this.redirect(url);
 
-              _context.next = 29;
+              _context.next = 32;
               break;
 
             case 10:
               if (!code) {
-                _context.next = 28;
+                _context.next = 31;
                 break;
               }
 
               userinfo = "";
               _context.t0 = view;
-              _context.next = _context.t0 === "staff" ? 15 : _context.t0 === "member" ? 19 : 23;
+              _context.next = _context.t0 === "staff" ? 15 : _context.t0 === "member" ? 19 : _context.t0 === "admin" ? 23 : 27;
               break;
 
             case 15:
@@ -99,7 +99,7 @@ var _class = function (_Base) {
 
             case 17:
               userinfo = _context.sent;
-              return _context.abrupt('break', 23);
+              return _context.abrupt('break', 27);
 
             case 19:
               _context.next = 21;
@@ -107,20 +107,27 @@ var _class = function (_Base) {
 
             case 21:
               userinfo = _context.sent;
-              return _context.abrupt('break', 23);
+              return _context.abrupt('break', 27);
 
             case 23:
-              debugger;
-              this.session("userinfo", { _id: userinfo._id.toJSON(), userid: userinfo.userid, type: view });
+              _context.next = 25;
+              return this.isAdmin(code);
+
+            case 25:
+              userinfo = _context.sent;
+              return _context.abrupt('break', 27);
+
+            case 27:
+              this.session("userinfo", { _id: userinfo._id, userid: userinfo.userid, type: view });
               this.redirect(url);
 
-              _context.next = 29;
+              _context.next = 32;
               break;
 
-            case 28:
+            case 31:
               this.redirect(this.getAuthorizeURL());
 
-            case 29:
+            case 32:
             case 'end':
               return _context.stop();
           }
@@ -341,10 +348,9 @@ var _class = function (_Base) {
               userinfo = _context6.sent;
 
             case 15:
-              debugger;
               return _context6.abrupt('return', userinfo);
 
-            case 17:
+            case 16:
             case 'end':
               return _context6.stop();
           }
@@ -411,6 +417,60 @@ var _class = function (_Base) {
     }
 
     return isMember;
+  }();
+
+  _class.prototype.isAdmin = function () {
+    var ref = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee8(code) {
+      var userinfo, result, Model;
+      return _regenerator2.default.wrap(function _callee8$(_context8) {
+        while (1) {
+          switch (_context8.prev = _context8.next) {
+            case 0:
+              userinfo = "";
+              _context8.next = 3;
+              return this.getUserId(code);
+
+            case 3:
+              result = _context8.sent;
+              Model = this.model("admin");
+              _context8.next = 7;
+              return Model.findByAdminId(result.UserId);
+
+            case 7:
+              userinfo = _context8.sent;
+
+              if (!think.isEmpty(userinfo)) {
+                _context8.next = 15;
+                break;
+              }
+
+              _context8.next = 11;
+              return this.getUser(result.UserId);
+
+            case 11:
+              userinfo = _context8.sent;
+              _context8.next = 14;
+              return Model.addAdmin(userinfo);
+
+            case 14:
+              userinfo = _context8.sent;
+
+            case 15:
+              return _context8.abrupt('return', userinfo);
+
+            case 16:
+            case 'end':
+              return _context8.stop();
+          }
+        }
+      }, _callee8, this);
+    }));
+
+    function isAdmin(_x8) {
+      return ref.apply(this, arguments);
+    }
+
+    return isAdmin;
   }();
 
   return _class;

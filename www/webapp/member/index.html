@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="renderer" content="webkit">    <title>会员服务</title>
 
-    <link rel="stylesheet" href="/webapp/member/static/pkg/all_6391d8e.css" />
+    <link rel="stylesheet" href="/webapp/member/static/pkg/all_66885b7.css" />
 </head>
 <body id="app" >
 
@@ -58,6 +58,11 @@ require.resourceMap({
       "type": "js",
       "pkg": "p1"
     },
+    "icon/index": {
+      "url": "/webapp/member/static/components/component/icon/index.js",
+      "type": "js",
+      "pkg": "p1"
+    },
     "loading/index": {
       "url": "/webapp/member/static/components/component/loading/index.js",
       "type": "js",
@@ -91,12 +96,28 @@ require.resourceMap({
         "component_modules/vue",
         "component_modules/vue-router",
         "components/page/home/home",
-        "loading/index"
+        "loading/index",
+        "icon/index"
       ],
       "pkg": "p1"
     },
     "masker/index": {
       "url": "/webapp/member/static/components/component/masker/index.js",
+      "type": "js",
+      "pkg": "p1"
+    },
+    "tab-item/index": {
+      "url": "/webapp/member/static/components/component/tab-item/index.js",
+      "type": "js",
+      "pkg": "p1"
+    },
+    "tab/index": {
+      "url": "/webapp/member/static/components/component/tab/index.js",
+      "type": "js",
+      "pkg": "p1"
+    },
+    "toast/index": {
+      "url": "/webapp/member/static/components/component/toast/index.js",
       "type": "js",
       "pkg": "p1"
     },
@@ -114,27 +135,35 @@ require.resourceMap({
       ],
       "pkg": "p1"
     },
-    "toast/index": {
-      "url": "/webapp/member/static/components/component/toast/index.js",
-      "type": "js",
-      "pkg": "p1"
-    },
-    "components/page/image/image": {
-      "url": "/webapp/member/static/components/page/image/image.js",
+    "components/page/history/history": {
+      "url": "/webapp/member/static/components/page/history/history.js",
       "type": "js",
       "deps": [
-        "component_modules/vue"
+        "component_modules/vue",
+        "tab/index",
+        "tab-item/index",
+        "main/service"
+      ],
+      "pkg": "p1"
+    },
+    "components/page/order/order": {
+      "url": "/webapp/member/static/components/page/order/order.js",
+      "type": "js",
+      "deps": [
+        "component_modules/vue",
+        "confirm/index",
+        "main/service"
       ],
       "pkg": "p1"
     }
   },
   "pkg": {
     "p0": {
-      "url": "/webapp/member/static/pkg/common_870c2a4.js",
+      "url": "/webapp/member/static/pkg/common_c60198b.js",
       "type": "js"
     },
     "p1": {
-      "url": "/webapp/member/static/pkg/app_717c4f9.js",
+      "url": "/webapp/member/static/pkg/app_ae5c7c1.js",
       "type": "js"
     }
   }

@@ -9,12 +9,22 @@ var Router = require("component_modules/vue-router.js");
 var home = require("components/page/home/home");
 var loading = require("loading/index.js");
 Vue.component("loading",loading);
+Vue.component("icon",require("icon/index.js"));
 
 Vue.use(Router);
 
 
 store = {
-   
+    order:[], //已选列表
+    isHav:function (id) {
+        for (var i = 0; i < this.order.length; i++) {
+            var obj = this.order[i];
+            if(obj._id == id){
+                return true;
+            }
+        }
+        return false;
+    }
 };
 
 router = new Router();
@@ -35,7 +45,21 @@ router.map({
                 reslove(c);
             })
         }
-    }
+    },
+    "/history":{
+        component: function (reslove) {
+            require.async(["components/page/history/history"], function (c) {
+                reslove(c);
+            })
+        }
+    },
+    "/order":{
+        component: function (reslove) {
+            require.async(["components/page/order/order"], function (c) {
+                reslove(c);
+            })
+        }
+    },
 });
 
 Vue.filter("getState", function (v) {
@@ -49,6 +73,23 @@ Vue.filter("getState", function (v) {
         }break;
         case 2:{
             return "今日休息";
+        }break;
+    }
+
+});
+
+
+Vue.filter("orderState", function (v) {
+
+    switch (parseInt(v)){
+        case 0:{
+            return "正在处理中";
+        }break;
+        case 1:{
+            return "处理完成";
+        }break;
+        case -1:{
+            return "订单取消";
         }break;
     }
 
