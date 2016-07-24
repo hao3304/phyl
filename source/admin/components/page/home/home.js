@@ -50,6 +50,11 @@ module.exports = Vue.extend({
           return count;
       }  
     },
+    events:{
+        reload:function () {
+            this.renderList();
+        }  
+    },
     ready: function () {
         this.render();
         var self = this;

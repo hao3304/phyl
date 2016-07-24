@@ -44,9 +44,11 @@ module.exports = Vue.extend({
             this.info.desc = this.desc;
             this.loading = true;
             var self = this;
+
             Service.putOrder(JSON.stringify(this.info),function (rep) {
                self.loading = false;
                self.$router.go({path:'/home',replace:true});
+               self.$root.$broadcast("reload");
             })
          }
       },
