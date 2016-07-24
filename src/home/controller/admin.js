@@ -45,6 +45,7 @@ export default class extends Base {
       let result = await this.model('order').where({_id:id}).update(data);
 
       let oauth = this.controller("oauth");
+      console.log("userid:"+data.user.userid);
       oauth.sendMsg({
         "touser": data.user.userid
       },{
