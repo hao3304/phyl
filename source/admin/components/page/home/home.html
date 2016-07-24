@@ -3,8 +3,8 @@
         <tab-item :selected="tab === '0'" @click="tab = '0'">处理中</tab-item>
         <tab-item :selected="tab === '1'" @click="tab = '1'">已完成</tab-item>
     </tab>
-    <div class="weui_panel weui_panel_access" v-for="l in list.data">
-        <div v-show="l.state == tab">
+    <div class="weui_panel weui_panel_access" v-for="l in list.data" v-show="l.state == tab">
+        <div >
             <div class="weui_panel_hd">
                 下单日期
                 <span style="float: right;color: #09bb07;font-weight: bold">

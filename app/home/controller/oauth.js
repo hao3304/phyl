@@ -40,7 +40,7 @@ var _wechat2 = _interopRequireDefault(_wechat);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Wechat = new _wechatEnterpriseApi2.default(_wechat2.default.corpid, _wechat2.default.corpsecret, 2);
+var Wechat = new _wechatEnterpriseApi2.default(_wechat2.default.corpid, _wechat2.default.corpsecret, 0);
 
 var _class = function (_Base) {
   (0, _inherits3.default)(_class, _Base);

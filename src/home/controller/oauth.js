@@ -3,7 +3,7 @@
 import Base from './base.js';
 import API from 'wechat-enterprise-api';
 import Config from '../../../wechat.js';
-let Wechat = new API(Config.corpid,Config.corpsecret,2);
+let Wechat = new API(Config.corpid,Config.corpsecret,0);
 export default class extends Base {
   /**
    * index action
