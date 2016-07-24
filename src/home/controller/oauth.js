@@ -4,6 +4,8 @@ import Base from './base.js';
 import API from 'wechat-enterprise-api';
 import Config from '../../../wechat.js';
 let Wechat = new API(Config.corpid,Config.corpsecret,0);
+let Time = new Date().getTime();
+
 export default class extends Base {
   /**
    * index action
@@ -15,6 +17,13 @@ export default class extends Base {
     let is_login = await this.isLogin(view);
     let url = "/webapp/"+view+"/index.html";
     let code = this.param("code");
+
+    let now = new Date().getTime();
+    debugger
+    if(now - Time > 5000000){
+      Wechat = new API(Config.corpid,Config.corpsecret,0);
+      Time = now;
+    }
 
     if(is_login){
       this.redirect(url);

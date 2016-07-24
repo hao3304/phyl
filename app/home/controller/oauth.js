@@ -41,6 +41,7 @@ var _wechat2 = _interopRequireDefault(_wechat);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Wechat = new _wechatEnterpriseApi2.default(_wechat2.default.corpid, _wechat2.default.corpsecret, 0);
+var Time = new Date().getTime();
 
 var _class = function (_Base) {
   (0, _inherits3.default)(_class, _Base);
@@ -57,7 +58,7 @@ var _class = function (_Base) {
 
   _class.prototype.indexAction = function () {
     var ref = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee() {
-      var view, is_login, url, code, userinfo;
+      var view, is_login, url, code, now, userinfo;
       return _regenerator2.default.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -71,63 +72,70 @@ var _class = function (_Base) {
               is_login = _context.sent;
               url = "/webapp/" + view + "/index.html";
               code = this.param("code");
+              now = new Date().getTime();
+
+              debugger;
+              if (now - Time > 5000000) {
+                Wechat = new _wechatEnterpriseApi2.default(_wechat2.default.corpid, _wechat2.default.corpsecret, 0);
+                Time = now;
+              }
 
               if (!is_login) {
-                _context.next = 10;
+                _context.next = 13;
                 break;
               }
 
               this.redirect(url);
 
-              _context.next = 32;
+              _context.next = 35;
               break;
 
-            case 10:
+            case 13:
               if (!code) {
-                _context.next = 31;
+                _context.next = 34;
                 break;
               }
 
               userinfo = "";
               _context.t0 = view;
-              _context.next = _context.t0 === "staff" ? 15 : _context.t0 === "member" ? 19 : _context.t0 === "admin" ? 23 : 27;
+              _context.next = _context.t0 === "staff" ? 18 : _context.t0 === "member" ? 22 : _context.t0 === "admin" ? 26 : 30;
               break;
 
-            case 15:
-              _context.next = 17;
+            case 18:
+              _context.next = 20;
               return this.isStaff(code);
 
-            case 17:
+            case 20:
               userinfo = _context.sent;
-              return _context.abrupt('break', 27);
+              return _context.abrupt('break', 30);
 
-            case 19:
-              _context.next = 21;
+            case 22:
+              _context.next = 24;
               return this.isMember(code);
 
-            case 21:
+            case 24:
               userinfo = _context.sent;
-              return _context.abrupt('break', 27);
+              return _context.abrupt('break', 30);
 
-            case 23:
-              _context.next = 25;
+            case 26:
+              _context.next = 28;
               return this.isAdmin(code);
 
-            case 25:
+            case 28:
               userinfo = _context.sent;
-              return _context.abrupt('break', 27);
+              return _context.abrupt('break', 30);
 
-            case 27:
+            case 30:
               this.session("userinfo", { _id: userinfo._id, userid: userinfo.userid, type: view });
               this.redirect(url);
 
-              _context.next = 32;
+              _context.next = 35;
               break;
 
-            case 31:
+            case 34:
               this.redirect(this.getAuthorizeURL());
 
-            case 32:
+            case 35:
             case 'end':
               return _context.stop();
           }
