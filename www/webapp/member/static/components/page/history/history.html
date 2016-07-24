@@ -36,8 +36,8 @@
                 </div>
             </div>
 
-            <div class="weui_cells_title">处理说明</div>
-            <div class="weui_cells weui_cells_form">
+            <div class="weui_cells_title" v-show="l.state!=0">处理说明</div>
+            <div class="weui_cells weui_cells_form"  v-show="l.state!=0">
                 <div class="weui_cell">
                     <div class="weui_cell_bd weui_cell_primary">
                         {{l.desc}}
